@@ -9,7 +9,7 @@ const _ = require("lodash");
 require("dotenv").config();
 const srvr = process.env.N1_KEY;
 const srvrCred = process.env.N1_SECRET;
-const mongoDB = "mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.57qzj.mongodb.net/todolistDB";
+// const mongoDB = "mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.57qzj.mongodb.net/todolistDB";
 
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(express.static("public"));
 
 //using mongoDB Atlas cloud services
 // mongoose.connect("mongodb+srv://Upasana_Roy:OuFFMAS1dSudDhOf@cluster0.r85zquh.mongodb.net/todolistDB");
-mongoose.connect("mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.57qzj.mongodb.net/todolistDB");
+mongoose.connect("mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.r85zquh.mongodb.net/todolistDB");
 
 
 //Schema
