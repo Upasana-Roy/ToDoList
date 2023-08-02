@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+    <!-- using forEach to `display only the name not `entire document -->
+    <% newListItems.forEach(function(newListItem){ %>
+      <!-- for deleting the item onclicking on the checkbox -->
+      <form class="" action="/delete" method="post">
+        <div class="item">
+          <!-- how to submit the form on clicking the checkbox - onChange -->
+          <input type="checkbox" name="checkbox" value="<%= newListItem._id %>" onChange="this.form.submit()">
+          <p><%=  newListItem.name  %></p>
+        </div>
+        <input type="hidden" name="listName" value=<%= listTitle %>></input>
+      </form>
+
+    <% }) %>
+
+
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value=<%= listTitle %>>+</button>
+      </form>
+  </div>
+
+<%- include("footer") -%>
