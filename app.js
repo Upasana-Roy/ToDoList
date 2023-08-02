@@ -6,6 +6,12 @@ const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 
+require("dotenv").config();
+const srvr = process.env.N1_KEY;
+const srvrCred = process.env.N1_SECRET;
+const mongoDB = "mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.57qzj.mongodb.net/todolistDB";
+
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -20,7 +26,8 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
 
 //using mongoDB Atlas cloud services
-mongoose.connect("mongodb+srv://Upasana_Roy:OuFFMAS1dSudDhOf@cluster0.r85zquh.mongodb.net/todolistDB");
+// mongoose.connect("mongodb+srv://Upasana_Roy:OuFFMAS1dSudDhOf@cluster0.r85zquh.mongodb.net/todolistDB");
+mongoose.connect("mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.57qzj.mongodb.net/todolistDB");
 
 
 //Schema
@@ -225,6 +232,10 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+// app.listen(3000, function() {
+//   console.log("Server started on port 3000");
+// });
+
+app.listen(process.env.PORT || 3000, function () {
+console.log("Server started.");
+ });
