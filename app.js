@@ -26,7 +26,6 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
 
 //using mongoDB Atlas cloud services
-// mongoose.connect("mongodb+srv://Upasana_Roy:OuFFMAS1dSudDhOf@cluster0.r85zquh.mongodb.net/todolistDB");
 mongoose.connect("mongodb+srv://" + srvr + ":" + srvrCred + "@cluster0.r85zquh.mongodb.net/todolistDB");
 
 
